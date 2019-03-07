@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    margin-top: 50px;
+}
+
+h2,
+p {
+    text-align: center;
+    margin: 20px;
+}
+
+button {
+    margin: 20px;
+    padding: 15px;
+    background-color: #04B4AE;
+    border-radius: 5px;
+}
+
+#b_drei {
+    background-color: red;
+}
+
+div {
+    display: inline;
+}
+
+section {
+    max-width: 980px;
+    margin: 50px auto;
+    background: lightblue;
+    /* Hintergrundfarbe für die Tabelle*/
+    display: grid;
+    /* display:grid - macht eine Tabellenstruktur*/
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    /*fr = fraction; Kurzform: repeat(5, 1fr); gibt die Spaltenmenge und -breite (geht auch in %) an*/
+    border: 2px solid #086A87;
+    /* mit justify-items kann man die Breite der Spalten anpassen */
+    /*justify-items: start;*/
+}
+
+fieldset {
+    margin: 50px 600px 0 600px;
+}
+
+div.form {
+    display: flex;
+    flex-direction: row;
+    margin: 10px auto;
+    padding: 2px;
+    max-width: 500px;
+}
+
+.headline {
+    padding: 20px;
+    background: #088A85;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+}
+
+.inhalte {
+    padding: 10px 20px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+label {
+    flex: 0 1 40%;
+    text-align: left;
+}
+
+input {
+    flex: 0 1 60%;
+}
