@@ -36,6 +36,7 @@
         <?php
             error_reporting(E_ALL|E_STRICT);
             // Verbindung zur DB
+            //create connection; mit 'require' wird Datei mit Zugangsdaten herangezogen
             require 'settings.php';
             $daba = mysqli_connect($servername, $username, $password, $daba);
             // Abfrage: Datensätze aus tbl_personen anzeigen lassen

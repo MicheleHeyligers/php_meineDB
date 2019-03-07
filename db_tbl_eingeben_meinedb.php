@@ -19,7 +19,7 @@
             if (isset($_POST['submit'])){
                 error_reporting(E_ALL|E_STRICT);
 
-                //create connection
+                //create connection; mit 'require' wird Datei mit Zugangsdaten herangezogen
                 require 'settings.php';
                 $conn = mysqli_connect($servername, $username, $password);
                 //check connection
