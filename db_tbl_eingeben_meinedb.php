@@ -18,11 +18,9 @@
         <?php
             if (isset($_POST['submit'])){
                 error_reporting(E_ALL|E_STRICT);
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
 
                 //create connection
+                require 'settings.php';
                 $conn = mysqli_connect($servername, $username, $password);
                 //check connection
                 if(!$conn){

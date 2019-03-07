@@ -13,7 +13,8 @@
             // $create_DB = "CREATE DATABASE kaffeeautomat IF NOT EXISTS";
             // um sich mit DB zu verbinden, Befehl eingeben: mysqli_connect(Servername, Username, Passwort, DB-Name)
             // und in Variable $daba abspeichern
-            $daba = mysqli_connect("localhost", "root", "", "meinedb");
+            require 'settings.php';
+            $daba = mysqli_connect($servername, $username, $password, $daba);
 
             // löschen einer Tabelle, falls es sie gibt
             $anfrage = "DROP TABLE IF EXISTS tbl_personen";

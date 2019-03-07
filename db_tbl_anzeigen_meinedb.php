@@ -28,8 +28,9 @@
             <?php
                 // Fehlerbehandlung
                 error_reporting(E_ALL | E_STRICT);
+                require 'settings.php';
                 // Verbindung zur DB
-                $daba = mysqli_connect("localhost", "root", "", "meinedb");
+                $daba = mysqli_connect($servername, $username, $password, $daba);
 
                 // Abfrage: Datensätze aus tbl_personen anzeigen lassen
                 $anfrage = "SELECT * 
