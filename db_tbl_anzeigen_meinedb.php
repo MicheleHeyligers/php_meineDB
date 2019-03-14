@@ -9,7 +9,8 @@
         <!-- Einbindung eines jquery-Frameworks -->
         <script src="jquery-3.3.1.min.js"></script>
         <script>
-            // mit Javascript: was passiert, wenn der Button geklickt wird
+            // unter jquery sieht javascripts 'window.onload' anders aus, muss aber nicht so geschrieben werden: 
+            // $("document").ready(function(){........});
             window.onload = start;
             function start(){
                 // $("section").hide().slideDown(2000).delay(5000).fadeIn(3000);
