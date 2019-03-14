@@ -32,20 +32,20 @@
 	</head>
 	<body>
         <h2>Datensätze löschen</h2>
-        <!-- <section id='delete'> -->
         <?php
             error_reporting(E_ALL|E_STRICT);
-            // Verbindung zur DB
+           
             //create connection; mit 'require' wird Datei mit Zugangsdaten herangezogen
             require 'settings.php';
-            $daba = mysqli_connect($servername, $username, $password, $daba);
+            $conn = mysqli_connect($servername, $username, $password, $daba);
             // Abfrage: Datensätze aus tbl_personen anzeigen lassen
             $anfrage = "SELECT * 
                         FROM tbl_personen;";
 
-            mysqli_query($daba, "SET NAMES utf8");
+            mysqli_query($conn, "SET NAMES utf8");
+
             // Abfrageergebnis des Select-Statements wird in Variable 'resultat' gespeichert
-            $resultat =  mysqli_query($daba, $anfrage) or die(mysqli_error($daba));
+            $resultat =  mysqli_query($conn, $anfrage) or die(mysqli_error($conn));
 
             // Methode mysqli_num_fields/rows($resultat) gibt Anzahl der Felder/Zeilen zurück
             $spaltenAnzahl = mysqli_num_fields($resultat);
@@ -60,15 +60,16 @@
                 echo "<div class='headline'>".$index."</div>";
             }
             echo"</section>";
+
             // Datensatzzeiger zurücksetzen
             mysqli_data_seek($resultat, 0);
 
             // Alle Datensätze aus Tabelle tbl_personen anzeigen u. selektieren
-            // Formular erstellen für die radio-Buttons
-            echo "<form method='POST' action='loeschen_meinedbB.php'>";
+            // Formular erstellen für die radio-Buttons, Datenweiterverarbeitung mit db_tbl_loeschen_meinedb2.php-skript
+            echo "<form method='POST' action='db_tbl_loeschen_meinedb2.php'>";
             for($i = 0; $i < $dsAnzahl; $i++){
                 $ds = mysqli_fetch_row($resultat); // extrahiert jeden Datensatz
-                //radio-button vor jedem Datensatz
+                //radio-button vor jedem Datensatz einfügen
                 echo"<span class='radios'><input type='radio' name='radiovalue' value='".$ds[4]."'></span>";
                 foreach($ds as $wert){
                     echo "<div class='inhalte'>".$wert."</div>";
@@ -77,7 +78,6 @@
             echo"<p><input id='loeschen' type='submit' name='loeschen' value='Daten löschen'></p>";
             echo"</form>";    
         ?>
-        <!-- </section> -->
         <div id="buttons_div">
             <button onclick="window.location.href = 'db_tbl_anzeigen_meinedb.php'">Daten anzeigen</button>
         </div>

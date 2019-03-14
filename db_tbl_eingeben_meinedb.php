@@ -16,12 +16,14 @@
     <body>
         <h1>Datensatz hinzufügen</h1>
         <?php
+            // if (isset($_POST['submit'])) -- ist das Formular denn schon abgeschickt??
             if (isset($_POST['submit'])){
                 error_reporting(E_ALL|E_STRICT);
 
                 //create connection; mit 'require' wird Datei mit Zugangsdaten herangezogen
                 require 'settings.php';
                 $conn = mysqli_connect($servername, $username, $password);
+
                 //check connection
                 if(!$conn){
                     die("Connection failed: ".mysqli_connect_error());
@@ -31,7 +33,6 @@
                 Die mysqli_real_escape_string()-Funktion dient zum
                 maskieren von Zeichen, die sonst in einem sql-Statement 
                 stören würden*/
-                
                 $vorname = mysqli_real_escape_string($conn, $_POST['vorname']);
                 $nachname = mysqli_real_escape_string($conn, $_POST['nachname']);
                 $gehalt = mysqli_real_escape_string($conn, $_POST['gehalt']);
@@ -44,6 +45,7 @@
 
                 mysqli_query($conn, "SET NAMES UTF8");
 
+                // SQL-Befehl $query ausführen
                 mysqli_query($conn, $query);
 
                 mysqli_close($conn);

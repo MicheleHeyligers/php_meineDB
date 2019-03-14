@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 	<head>
+        <!-- STAMMDATEI -->
 		<meta charset="utf-8">
 		<title>Datensätze anzeigen lassen</title>
         <link rel="stylesheet" type="text/css" media="screen" href="./db_tbl_meinedb.css">
