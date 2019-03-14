@@ -6,10 +6,15 @@
 		<title>Datensätze anzeigen lassen</title>
         <link rel="stylesheet" type="text/css" media="screen" href="./db_tbl_meinedb.css">
 		<style></style>
+        <!-- Einbindung eines jquery-Frameworks -->
+        <script src="jquery-3.3.1.min.js"></script>
         <script>
             // mit Javascript: was passiert, wenn der Button geklickt wird
             window.onload = start;
             function start(){
+                // $("section").hide().slideDown(2000).delay(5000).fadeIn(3000);
+                // jquery-framework Funktionalität eingebunden
+                $("section").hide().slideDown(2000);
                 // wenn der Button geklickt wird, wird auf die andere Seite verlinkt (wo dann z.B. ein Formular wartet)
                 document.getElementsByTagName('button')[0].onclick = function(){
                                                                                 window.location.href = "db_tbl_eingeben_meinedb.php";
